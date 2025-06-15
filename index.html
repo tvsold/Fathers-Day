@@ -59,10 +59,33 @@
       transform: scale(1.05);
     }
 
+    .list-wrapper {
+      max-height: 300px;
+      overflow-y: auto;
+      margin-top: 20px;
+      padding-right: 10px;
+      scroll-behavior: smooth;
+    }
+
+    .list-wrapper::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    .list-wrapper::-webkit-scrollbar-thumb {
+      background-color: #ff9aa2;
+      border-radius: 6px;
+    }
+
+    @media (max-width: 600px) {
+      .list-wrapper {
+        max-height: 50vh;
+      }
+    }
+
     ul {
       list-style: none;
       padding: 0;
-      margin-top: 30px;
+      margin-top: 0;
       opacity: 0;
       transition: opacity 1s ease;
     }
@@ -195,17 +218,19 @@
   <div class="container">
     <h1>Happy Father's Day 💖</h1>
     <button onclick="showList()">Click Here</button>
-    <ul id="dadList">
-      <li>Thank you for cleaning my room</li>
-      <li>Helping me with math</li>
-      <li>Taking me on long hour drives</li>
-      <li>Cooking</li>
-      <li>Giving me water when I'm too lazy</li>
-      <li>Dropping my friends off</li>
-      <li>Letting me spend a lot of money (even though you get mad)</li>
-      <li>Paying for my UCLA tuition</li>
-      <li>You're the best — thank you!!</li>
-    </ul>
+    <div class="list-wrapper" id="listWrapper">
+      <ul id="dadList">
+        <li>Thank you for cleaning my room</li>
+        <li>Helping me with math</li>
+        <li>Taking me on long hour drives</li>
+        <li>Cooking</li>
+        <li>Giving me water when I'm too lazy</li>
+        <li>Dropping my friends off</li>
+        <li>Letting me spend a lot of money (even though you get mad)</li>
+        <li>Paying for my UCLA tuition</li>
+        <li>You're the best — thank you!!</li>
+      </ul>
+    </div>
   </div>
 
   <!-- Scroll to List Button -->
@@ -224,17 +249,14 @@
       items.forEach(item => {
         item.style.animationPlayState = "running";
       });
-
-      // Hide scroll button after list is shown
+      // Hide scroll button after list shows
       document.querySelector(".scroll-btn").style.display = "none";
     }
 
     function scrollToList() {
-      const list = document.getElementById("dadList");
-      list.scrollIntoView({ behavior: "smooth" });
+      document.getElementById("listWrapper").scrollIntoView({ behavior: "smooth" });
     }
   </script>
 </body>
 </html>
-
 
