@@ -38,8 +38,16 @@
 
     h1 {
       font-size: 3em;
-      margin-bottom: 30px;
+      margin-bottom: 10px;
       animation: fadeUp 1s ease-out forwards;
+    }
+
+    p.subtitle {
+      font-size: 1.3em;
+      color: #5c3c4a;
+      margin-top: -5px;
+      margin-bottom: 30px;
+      animation: fadeUp 1.2s ease-out forwards;
     }
 
     button {
@@ -161,14 +169,6 @@
       }
     }
 
-    /* Optional: smooth mobile scrolling */
-    @media (max-width: 600px) {
-      .container {
-        margin: 20% auto;
-        padding: 25px;
-      }
-    }
-
     /* Optional scrollbar style */
     ::-webkit-scrollbar {
       width: 6px;
@@ -177,6 +177,13 @@
     ::-webkit-scrollbar-thumb {
       background-color: #ff9aa2;
       border-radius: 6px;
+    }
+
+    @media (max-width: 600px) {
+      .container {
+        margin: 20% auto;
+        padding: 25px;
+      }
     }
   </style>
 </head>
@@ -191,6 +198,7 @@
 
   <div class="container">
     <h1>Happy Father's Day 💖</h1>
+    <p class="subtitle">from the <em>better</em> daughter, Tulsi 😌</p>
     <button onclick="showList()">Click Here</button>
     <ul id="dadList">
       <li>Thank you for cleaning my room</li>
