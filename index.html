@@ -14,42 +14,40 @@
       margin: 0;
       padding: 0;
       font-family: 'Quicksand', sans-serif;
-      background: linear-gradient(to bottom right, #ffe4ec, #ffd1dc);
-      height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      color: #4a2c35;
+      background: linear-gradient(135deg, #ffe4e1, #ffd1dc);
       overflow: hidden;
+      color: #4a2c35;
     }
 
     .container {
-      max-width: 600px;
-      padding: 30px;
-      background: rgba(255, 255, 255, 0.75);
-      border-radius: 20px;
-      box-shadow: 0 0 30px rgba(255, 182, 193, 0.4);
+      max-width: 700px;
+      margin: 10% auto;
+      padding: 40px;
+      background: rgba(255, 255, 255, 0.7);
+      border-radius: 30px;
+      text-align: center;
+      box-shadow: 0 0 40px rgba(255, 182, 193, 0.5);
+      backdrop-filter: blur(8px);
       animation: fadeIn 1.2s ease-out;
     }
 
     h1 {
       font-size: 3em;
-      margin-bottom: 25px;
+      margin-bottom: 30px;
       animation: fadeUp 1s ease-out forwards;
     }
 
     button {
-      padding: 12px 25px;
-      font-size: 1em;
-      font-family: 'Quicksand', sans-serif;
+      padding: 15px 30px;
+      font-size: 1.1em;
       background-color: #ff9aa2;
       border: none;
-      border-radius: 10px;
+      border-radius: 12px;
       color: white;
       cursor: pointer;
       box-shadow: 0 6px 12px rgba(255, 154, 162, 0.4);
       transition: all 0.3s ease;
+      margin-bottom: 20px;
     }
 
     button:hover {
@@ -71,10 +69,20 @@
 
     li {
       margin: 10px 0;
-      font-size: 1.2em;
+      font-size: 1.3em;
+      position: relative;
+      padding-left: 25px;
+      text-align: left;
       opacity: 0;
       transform: translateY(20px);
       animation: fadeInList 0.8s forwards;
+    }
+
+    li::before {
+      content: "💗";
+      position: absolute;
+      left: 0;
+      top: 0;
     }
 
     li:nth-child(1) { animation-delay: 0.1s; }
@@ -103,9 +111,62 @@
         transform: translateY(0);
       }
     }
+
+    /* Floating Hearts */
+    .heart {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background-color: pink;
+      transform: rotate(45deg);
+      animation: float 10s infinite ease-in;
+      opacity: 0.6;
+    }
+
+    .heart::before,
+    .heart::after {
+      content: "";
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background-color: pink;
+      border-radius: 50%;
+    }
+
+    .heart::before {
+      top: -10px;
+      left: 0;
+    }
+
+    .heart::after {
+      left: -10px;
+      top: 0;
+    }
+
+    @keyframes float {
+      0% {
+        transform: translateY(100vh) rotate(45deg);
+        opacity: 0;
+      }
+      50% {
+        opacity: 0.8;
+      }
+      100% {
+        transform: translateY(-10vh) rotate(45deg);
+        opacity: 0;
+      }
+    }
   </style>
 </head>
 <body>
+
+  <!-- Floating Hearts -->
+  <div class="heart" style="left:10%; animation-delay: 1s;"></div>
+  <div class="heart" style="left:30%; animation-delay: 2s;"></div>
+  <div class="heart" style="left:50%; animation-delay: 3s;"></div>
+  <div class="heart" style="left:70%; animation-delay: 1.5s;"></div>
+  <div class="heart" style="left:90%; animation-delay: 2.5s;"></div>
+
   <div class="container">
     <h1>Happy Father's Day 💖</h1>
     <button onclick="showList()">Click Here</button>
@@ -122,6 +183,12 @@
     </ul>
   </div>
 
+  <!-- Background music (royalty-free lofi from Pixabay CDN) -->
+  <audio autoplay loop>
+    <source src="https://cdn.pixabay.com/audio/2023/03/01/audio_eb797d05a2.mp3" type="audio/mpeg">
+    Your browser does not support the audio tag.
+  </audio>
+
   <script>
     function showList() {
       const list = document.getElementById("dadList");
@@ -134,3 +201,4 @@
   </script>
 </body>
 </html>
+
