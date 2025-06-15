@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Happy Father's Day</title>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Quicksand', sans-serif;
+      background: #ffd6e0 url('https://www.transparenttextures.com/patterns/grunge-wall.png');
+      background-size: cover;
+      color: #5c3c4a;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      flex-direction: column;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 3em;
+      margin-bottom: 20px;
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 1em;
+      font-family: 'Quicksand', sans-serif;
+      background-color: #ffb6c1;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      color: #fff;
+      transition: background 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #ff9aa2;
+    }
+
+    ul {
+      margin-top: 30px;
+      list-style-type: none;
+      padding: 0;
+      display: none;
+    }
+
+    li {
+      margin-bottom: 10px;
+      font-size: 1.2em;
+    }
+
+    .container {
+      max-width: 600px;
+      padding: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Happy Father's Day 💖</h1>
+    <button onclick="showList()">Click Here</button>
+    <ul id="dadList">
+      <li>Thank you for cleaning my room</li>
+      <li>Helping me with math</li>
+      <li>Taking me on long hour drives</li>
+      <li>Cooking</li>
+      <li>Giving me water when I'm too lazy</li>
+      <li>Dropping my friends off</li>
+      <li>Letting me spend a lot of money (even though you get mad)</li>
+      <li>Paying for my UCLA tuition</li>
+      <li>You're the best — thank you!!</li>
+    </ul>
+  </div>
+
+  <script>
+    function showList() {
+      document.getElementById("dadList").style.display = "block";
+    }
+  </script>
+</body>
+</html>
