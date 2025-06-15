@@ -10,17 +10,18 @@
       box-sizing: border-box;
     }
 
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
+    html, body {
       margin: 0;
       padding: 0;
       font-family: 'Quicksand', sans-serif;
       background: linear-gradient(135deg, #ffe4e1, #ffd1dc);
-      overflow-x: hidden;
       color: #4a2c35;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      min-height: 100vh;
+      overflow-y: auto;
     }
 
     .container {
@@ -59,33 +60,10 @@
       transform: scale(1.05);
     }
 
-    .list-wrapper {
-      max-height: 300px;
-      overflow-y: auto;
-      margin-top: 20px;
-      padding-right: 10px;
-      scroll-behavior: smooth;
-    }
-
-    .list-wrapper::-webkit-scrollbar {
-      width: 6px;
-    }
-
-    .list-wrapper::-webkit-scrollbar-thumb {
-      background-color: #ff9aa2;
-      border-radius: 6px;
-    }
-
-    @media (max-width: 600px) {
-      .list-wrapper {
-        max-height: 50vh;
-      }
-    }
-
     ul {
       list-style: none;
       padding: 0;
-      margin-top: 0;
+      margin-top: 20px;
       opacity: 0;
       transition: opacity 1s ease;
     }
@@ -183,26 +161,22 @@
       }
     }
 
-    .scroll-btn {
-      position: fixed;
-      bottom: 20px;
-      left: 50%;
-      transform: translateX(-50%);
-      background-color: #ffb6c1;
-      color: white;
-      border: none;
-      padding: 12px 20px;
-      border-radius: 30px;
-      font-size: 1em;
-      box-shadow: 0 4px 12px rgba(255, 154, 162, 0.4);
-      cursor: pointer;
-      z-index: 999;
-      transition: all 0.3s ease;
+    /* Optional: smooth mobile scrolling */
+    @media (max-width: 600px) {
+      .container {
+        margin: 20% auto;
+        padding: 25px;
+      }
     }
 
-    .scroll-btn:hover {
-      background-color: #ff6f91;
-      transform: translateX(-50%) scale(1.05);
+    /* Optional scrollbar style */
+    ::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background-color: #ff9aa2;
+      border-radius: 6px;
     }
   </style>
 </head>
@@ -218,23 +192,18 @@
   <div class="container">
     <h1>Happy Father's Day 💖</h1>
     <button onclick="showList()">Click Here</button>
-    <div class="list-wrapper" id="listWrapper">
-      <ul id="dadList">
-        <li>Thank you for cleaning my room</li>
-        <li>Helping me with math</li>
-        <li>Taking me on long hour drives</li>
-        <li>Cooking</li>
-        <li>Giving me water when I'm too lazy</li>
-        <li>Dropping my friends off</li>
-        <li>Letting me spend a lot of money (even though you get mad)</li>
-        <li>Paying for my UCLA tuition</li>
-        <li>You're the best — thank you!!</li>
-      </ul>
-    </div>
+    <ul id="dadList">
+      <li>Thank you for cleaning my room</li>
+      <li>Helping me with math</li>
+      <li>Taking me on long hour drives</li>
+      <li>Cooking</li>
+      <li>Giving me water when I'm too lazy</li>
+      <li>Dropping my friends off</li>
+      <li>Letting me spend a lot of money (even though you get mad)</li>
+      <li>Paying for my UCLA tuition</li>
+      <li>You're the best — thank you!!</li>
+    </ul>
   </div>
-
-  <!-- Scroll to List Button -->
-  <button class="scroll-btn" onclick="scrollToList()">💌 Scroll to Why</button>
 
   <!-- Background Music -->
   <audio autoplay loop>
@@ -249,12 +218,6 @@
       items.forEach(item => {
         item.style.animationPlayState = "running";
       });
-      // Hide scroll button after list shows
-      document.querySelector(".scroll-btn").style.display = "none";
-    }
-
-    function scrollToList() {
-      document.getElementById("listWrapper").scrollIntoView({ behavior: "smooth" });
     }
   </script>
 </body>
